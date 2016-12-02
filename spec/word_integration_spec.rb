@@ -34,3 +34,16 @@ describe('the add definition path', {:type => :feature}) do
     expect(page).to have_content('not consistent or having a fixed pattern; liable to change. (Noun)')
   end
 end
+
+describe('the add a second definition path', {:type => :feature}) do
+  it('Adds a new definition to a word, verifies it is listed') do
+    visit('/')
+    click_link('variable')
+    click_link('Add a Definition')
+    fill_in('definition', :with => 'able to be changed or adapted.')
+    click_button('Add Definition')
+    click_link('Return')
+    click_link('variable')
+    expect(page).to have_content('not consistent or having a fixed pattern; liable to change. (Noun) able to be changed or adapted. (Noun)')
+  end
+end
