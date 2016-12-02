@@ -1,0 +1,19 @@
+<h1>Add a definition to the word: <%= @current_word.word() %></h1>
+
+<form action="/add_definition/<%= @current_word.id() %>" method="post">
+  <div class="form-group">
+
+  <label for="definition">Enter a Definition:</label>
+  <input type="text" name="definition" id="definition" class="form-control">
+
+  <label for="part-speech">Enter the Part of Speech This Definition Describes:</label>
+  <select class="form-control" id="part-speech" name="part-speech">
+    <option>Noun</option>
+    <option>Verb</option>
+    <option>Adjective</option>
+    <option>Adverb</option>
+  </select>
+
+</div>
+  <button type="submit" name="button" class="btn btn-default btn-lg">Add Definition</button>
+</form>
