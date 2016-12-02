@@ -4,7 +4,7 @@ class Word
   attr_reader(:word, :id, :definitions)
 
   define_method(:initialize) do |attributes|
-    @word = attributes.fetch(:word)
+    @word = attributes.fetch(:word).downcase()
     @id = @@words.length() + 1
     @definitions = []
   end
@@ -43,5 +43,11 @@ class Word
       end
     end
     found_definition
+  end
+
+  define_singleton_method(:sort_words_a_to_z) do
+    @@words.sort! do |a, b|
+      a.word <=> b.word
+    end
   end
 end

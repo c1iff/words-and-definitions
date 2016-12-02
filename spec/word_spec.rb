@@ -61,4 +61,17 @@ describe(Word) do
       expect(@test_word.find_definition(test_definition.id)).to(eq(test_definition))
     end
   end
+
+  describe('.sort_words_a_to_z') do
+    it('sorts the @@words array in alphebetical order') do
+      test_word1 = Word.new(:word => 'ruby')
+      test_word1.save()
+      test_word2 = Word.new(:word => 'object')
+      test_word2.save()
+      test_word3 = Word.new(:word => 'method')
+      test_word3.save()
+      Word.sort_words_a_to_z()
+      expect(Word.all()).to(eq([test_word3, test_word2, test_word1, @test_word]))
+    end
+  end
 end
