@@ -42,9 +42,11 @@ post('/search/for/word') do
   if @current_word == nil
     erb(:no_match)
   else
+  print @current_word.id()
     erb(:word)
   end
 end
+
 get('/definition/new/:id') do
   @current_word = Word.find(params.fetch('id').to_i)
   erb(:new_definition)

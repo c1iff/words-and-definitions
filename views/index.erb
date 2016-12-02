@@ -1,18 +1,20 @@
-<h1>Words and Definitions</h1>
-
+<h3>Word List:</h3>
 <div class="panel panel-default">
   <div class="planel-body">
 
     <ul>
-    <% @words.each do |word| %>
-      <li><a href="/word/<%= word.id() %>"><%= word.word() %></a></li>
-    <% end %>
+      <%if @words == [] %>
+        <li>The word list is empty, click 'Add a Word' below</li>
+      <% else %>
+        <% @words.each do |word| %>
+          <li><a href="/word/<%= word.id() %>"><%= word.word() %></a></li>
+        <% end %>
+      <% end %>
     </ul>
-
   </div>
 </div>
 
 
-<a href="/new/word"><button type="button" class="btn btn-default btn-lg">Add a Word</button></a>
-<a href="/sort/words"><button type="button" class="btn btn-default btn-lg">Sort (A to Z)</button></a>
-<a href="/search/word"><button type="button" class="btn btn-default btn-lg">Search for a Word</button></a>
+<a href="/new/word"><button type="button" class="btn btn-primary btn-lg">Add a Word</button></a>
+<a href="/sort/words"><button type="button" class="btn btn-primary btn-lg">Sort (A to Z)</button></a>
+<a href="/search/word"><button type="button" class="btn btn-primary btn-lg">Search for a Word</button></a>
