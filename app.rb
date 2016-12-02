@@ -36,13 +36,12 @@ get('/search/word') do
   erb(:search)
 end
 
-post('/search/for/word/id:') do
+post('/search/for/word') do
   @current_search = params.fetch('search')
-  @current_word = Word.search(@current_search)
-  if @current_word == nil
+  @@searched_word = Word.search(@current_search)
+  if @@searched_word == nil
     erb(:no_match)
   else
-  print @current_word.id()
     erb(:word)
   end
 end
