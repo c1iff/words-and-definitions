@@ -53,4 +53,12 @@ describe(Word) do
       expect(@test_word.definitions()).to(eq([test_definition, test_definition2]))
     end
   end
+
+  describe('#find_definition') do
+    it('returns a definition from a word based on an id number') do
+      test_definition = Definition.new(:definition => 'not consistent or having a fixed pattern; liable to change.', :part_of_speech => 'adjective')
+      @test_word.add_definition(test_definition)
+      expect(@test_word.find_definition(test_definition.id)).to(eq(test_definition))
+    end
+  end
 end

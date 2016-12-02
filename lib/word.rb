@@ -34,4 +34,14 @@ class Word
   define_method(:add_definition) do |definition|
     @definitions.push(definition)
   end
+
+  define_method(:find_definition) do |definition_id|
+    found_definition = nil
+    @definitions.each() do |definition|
+      if definition.id == definition_id
+        found_definition = definition
+      end
+    end
+    found_definition
+  end
 end

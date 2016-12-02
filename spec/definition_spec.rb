@@ -21,4 +21,9 @@ describe(Definition) do
     end
   end
 
+  describe('#id') do
+    it('returns a unique id number') do
+      expect(@test_definition.id()).to(eq(1))
+    end
+  end
 end
