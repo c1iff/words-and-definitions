@@ -1,15 +1,17 @@
-<h2>All Definitions</h2>
+<h3>All Definitions</h3>
+
+
 <ul>
   <%if @words == [] %>
-    <li>The word list is empty, click 'Add a Word' below</li>
+    <li>The word list is empty</li>
   <% else %>
     <% @words.each do |word| %>
       <li><h4><%= word.word() %></h4></li>
         <ol>
-          <%=<word.definitions().each do |definition|%>
-          <li><%=<definition.definition()%></li>
-        </ol>
+          <% word.definitions().each do |definition| %>
+          <li> <%= definition.definition()%> (<i><%=definition.part_of_speech()%></i>)</li>
       <% end %>
+    </ol>
     <% end %>
   <% end %>
 </ul>
