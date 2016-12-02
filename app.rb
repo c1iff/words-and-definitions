@@ -40,8 +40,8 @@ end
 post('/add_definition/:id') do
   @current_word = Word.find(params.fetch('id').to_i)
   @new_definition = params.fetch('definition')
-  # @current_part_speech = params.fetch('part-speech')
-  @current_definition = Definition.new(:definition => @new_definition, :part_of_speech => 'test')
+  @current_part_speech = params.fetch('part-speech')
+  @current_definition = Definition.new(:definition => @new_definition, :part_of_speech => @current_part_speech)
   @current_word.add_definition(@current_definition)
   erb(:success)
 end

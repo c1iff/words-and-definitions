@@ -3,7 +3,7 @@
 <ol>
 
   <% @definitions.each do |definition| %>
-    <li><%= definition.definition() %></li>
+    <li><%= definition.definition() %> (<i><%=definition.part_of_speech()%></i>)</li>
   <% end %>
 
 </ol>

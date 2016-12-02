@@ -50,4 +50,15 @@ class Word
       a.word <=> b.word
     end
   end
+
+  define_singleton_method(:search) do |search_term|
+    found_word = nil
+    search_term_no_case = search_term.downcase()
+    @@words.each() do |word|
+      if word.word() == search_term_no_case
+        found_word = word
+      end
+    end
+      found_word  
+  end
 end

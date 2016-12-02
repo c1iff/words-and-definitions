@@ -74,4 +74,10 @@ describe(Word) do
       expect(Word.all()).to(eq([test_word3, test_word2, test_word1, @test_word]))
     end
   end
+
+  describe('.search') do
+    it('returns a word if the search term matches a word in the @@words array') do
+      expect(Word.search('Variable')).to(eq(@test_word))
+    end
+  end
 end
