@@ -32,6 +32,19 @@ get('/sort/words') do
   erb(:index)
 end
 
+get('/search/word') do
+  erb(:search)
+end
+
+post('/search/for/word') do
+  @current_search = params.fetch('search')
+  @current_word = Word.search(@current_search)
+  if @current_word == nil
+    erb(:no_match)
+  else
+    erb(:word)
+  end
+end
 get('/definition/new/:id') do
   @current_word = Word.find(params.fetch('id').to_i)
   erb(:new_definition)

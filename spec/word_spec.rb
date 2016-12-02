@@ -80,4 +80,10 @@ describe(Word) do
       expect(Word.search('Variable')).to(eq(@test_word))
     end
   end
+
+  describe('.search') do
+    it('returns nil if the search term dosnt match a word in the @@words array') do
+      expect(Word.search('dog')).to(eq(nil))
+    end
+  end
 end
