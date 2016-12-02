@@ -15,7 +15,7 @@ This app lets the add a word and multiple definitions to the word.
 * go to the Terminal and in cloned repository type the bundle command
 * Open a local server by entering: ruby app.rb
 * Open the app the url: localhost:4567
-* on heroku: https://powerful-hamlet-91609.herokuapp.com/
+* on heroku: https://polar-depths-34781.herokuapp.com/
 
 
 ##Specifications
