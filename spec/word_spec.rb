@@ -44,5 +44,13 @@ describe(Word) do
     end
   end
 
-
+  describe('#add_definition') do
+    it('adds multiple definition objects to a word') do
+      test_definition = Definition.new(:definition => 'not consistent or having a fixed pattern; liable to change.')
+      @test_word.add_definition(test_definition)
+      test_definition2 = Definition.new(:definition => 'able to be changed or adapted.')
+      @test_word.add_definition(test_definition2)
+      expect(@test_word.definitions()).to(eq([test_definition, test_definition2]))
+    end
+  end
 end
