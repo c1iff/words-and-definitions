@@ -38,7 +38,7 @@ describe(Word) do
 
   describe('#add_definition') do
     it('adds a definition object to a word') do
-      test_definition = Definition.new(:definition => 'not consistent or having a fixed pattern; liable to change.')
+      test_definition = Definition.new(:definition => 'not consistent or having a fixed pattern; liable to change.', :part_of_speech => 'adjective')
       @test_word.add_definition(test_definition)
       expect(@test_word.definitions()).to(eq([test_definition]))
     end
@@ -46,9 +46,9 @@ describe(Word) do
 
   describe('#add_definition') do
     it('adds multiple definition objects to a word') do
-      test_definition = Definition.new(:definition => 'not consistent or having a fixed pattern; liable to change.')
+      test_definition = Definition.new(:definition => 'not consistent or having a fixed pattern; liable to change.', :part_of_speech => 'adjective')
       @test_word.add_definition(test_definition)
-      test_definition2 = Definition.new(:definition => 'able to be changed or adapted.')
+      test_definition2 = Definition.new(:definition => 'able to be changed or adapted.', :part_of_speech => 'adjective')
       @test_word.add_definition(test_definition2)
       expect(@test_word.definitions()).to(eq([test_definition, test_definition2]))
     end
