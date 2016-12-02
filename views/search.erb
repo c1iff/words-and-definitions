@@ -1,6 +1,6 @@
 <h1>Search for a Word</h1>
 
-<form action="/search/for/word" method="post">
+<form action="/search/for/word/<%= @current_word.id()%>/" method="post">
     <div class="form-group">
       <label for="search">Enter a Word to Search For:</label>
       <input type="text" name="search" id="search" class="form-control">

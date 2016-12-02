@@ -36,7 +36,7 @@ get('/search/word') do
   erb(:search)
 end
 
-post('/search/for/word') do
+post('/search/for/word/id:') do
   @current_search = params.fetch('search')
   @current_word = Word.search(@current_search)
   if @current_word == nil
@@ -59,4 +59,9 @@ post('/add_definition/:id') do
   @current_definition = Definition.new(:definition => @new_definition, :part_of_speech => @current_part_speech)
   @current_word.add_definition(@current_definition)
   erb(:success)
+end
+
+get('/all/definitions') do
+  @words = Word.all()
+  erb(:all_definitions)
 end
