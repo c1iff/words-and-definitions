@@ -1,5 +1,6 @@
 require('rspec')
 require('word')
+require('definition')
 
 describe(Word) do
 
@@ -24,6 +25,22 @@ describe(Word) do
   describe('#id') do
     it('returns a unique id number for every word that is saved to the @@words class variable') do
       expect(@test_word.id()).to(eq(1))
+    end
+  end
+
+  describe('.find') do
+    it('returns a word object based on an id number') do
+      test_word2 = Word.new(:word => 'array')
+      test_word2.save()
+      expect(Word.find(test_word2.id)).to(eq(test_word2))
+    end
+  end
+
+  describe('#add_definition') do
+    it('adds a definition object to a word') do
+      test_definition = Definition.new(:definition => 'not consistent or having a fixed pattern; liable to change.')
+      @test_word.add_definition(test_definition)
+      expect(@test_word.definitions()).to(eq([test_definition]))
     end
   end
 
